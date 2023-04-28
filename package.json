@@ -8,8 +8,11 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@unocss/nuxt": "^0.51.8",
     "nuxt": "3.4.2",
-    "nuxt-icon": "^0.4.0"
+    "nuxt-icon": "^0.4.0",
+    "@nuxt/devtools": "^0.4.1",
+    "sass": "^1.62.0"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.9",

@@ -4,8 +4,6 @@
   </NuxtLayout>
 </template>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
+/* import '@unocss/reset/tailwind-compat.css'; */
+@import '@unocss/reset/tailwind-compat.css';
 </style>

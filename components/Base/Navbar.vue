@@ -1,7 +1,25 @@
 <template>
-  <div class="relative z-2">
-    <Menubar :model="items" class="bg-white" />
-  </div>
+  <header
+    id="header_area"
+    class="w-full mx-auto bg-white transition-transform transition-background duration-300 ease-in-out z-50"
+    :class="topOfPage ? 'absolute z-5 md:bg-transparent' : 'fixed top-0'"
+    >
+    <div class="md:max-w-6xl mx-auto bg-white">
+      <Menubar
+        :model="items"
+        class="border-0 flex shadow-none mx-auto items-center justify-between p-4 bg-white"
+      >
+        <template #start>
+          <img
+            alt="logo"
+            src="~/assets/images/Logo.png"
+            height="40"
+            class="mr-2"
+          />
+        </template>
+      </Menubar>
+    </div>
+  </header>
 </template>
 
 <script setup>
@@ -130,4 +148,22 @@ const items = ref([
     icon: "pi pi-fw pi-power-off",
   },
 ]);
+const topOfPage = ref(true);
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  console.log(topOfPage.value);
+});
+
+const handleScroll = () => {
+  const nav_offset_top =
+    document.querySelector("#header_area").offsetHeight + 50;
+  if (document.querySelector("#header_area")) {
+    let scroll = window.pageYOffset;
+    if (scroll >= nav_offset_top) {
+      if (topOfPage.value) topOfPage.value = false;
+    } else {
+      if (!topOfPage.value) topOfPage.value = true;
+    }
+  }
+};
 </script>
